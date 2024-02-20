@@ -1,84 +1,106 @@
-@import 'npm:@fontsource/kalam/400.css';
-@import 'npm:@fontsource/kalam/700.css';
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
 
-html, body {
-  padding: 0;
-  margin: 0;
-  background: #f0f2f5; /* Arka plan rengini daha yumuşak bir tona ayarlayın */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f0f2f5;
+  --text-color: #212529;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Kalam', cursive;
   overscroll-behavior: contain;
-  font-family: 'Kalam', cursive; /* Kalam fontunu varsayılan font olarak ayarlayın */
 }
 
-canvas {
-  display: block;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
 }
 
-svg.color-icon {
-  vertical-align: middle;
+p {
+  line-height: 1.5;
 }
 
-.ant-tabs-nav .ant-tabs-tab {
-  padding: 16px !important;
+a {
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-.watermark {
-  position: fixed;
-  top: 54px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9;
-  padding: 0 4px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: rgba(0, 0, 0, 0.45);
-  font-size: 14px;
-  line-height: 1em;
-  letter-spacing: 1px;
+a:hover {
+  text-decoration: underline;
 }
 
-/* Yeni eklenen stil kuralları */
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 0 15px;
+}
+
+.flex {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.header, .footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #007bff;
-  color: white;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background: white; /* İçerik için beyaz arka plan */
-  margin: 20px 0; /* Üst ve alt boşluk */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* İçerik kartı için hafif gölge */
-  border-radius: 8px; /* Yuvarlatılmış köşeler */
+.card {
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.card-body {
+  padding: 15px;
 }
 
 .button {
-  background-color: var(--primary-color, #007bff);
-  color: white;
-  border: none;
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   cursor: pointer;
+  border: none;
   transition: background-color 0.3s;
 }
 
 .button:hover {
-  background-color: darken(var(--primary-color, #0056b3), 10%);
+  background-color: darken(var(--primary-color), 10%);
 }
 
+/* Duyarlı Tasarım */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
+  .flex, .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
