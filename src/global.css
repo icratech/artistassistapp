@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
   --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --background-color: #f0f2f5;
-  --text-color: #212529;
-  --light-color: #f8f9fa;
-  --dark-color: #343a40;
-  --border-radius: 8px;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --secondary-color: #ff7851;
+  --accent-color: #ffc107;
+  --text-color: #343a40;
+  --background-color: #f8f9fa;
+  --card-background-color: #ffffff;
+  --font-family-base: 'Roboto', sans-serif;
+  --font-family-heading: 'Kalam', cursive;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 *,
@@ -22,16 +25,17 @@ body {
   padding: 20px;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: 'Kalam', cursive;
-  overscroll-behavior: contain;
+  font-family: var(--font-family-base);
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-family: var(--font-family-heading);
+  margin-top: 0;
 }
 
 p {
-  line-height: 1.5;
+  margin-top: 0;
 }
 
 a {
@@ -62,7 +66,7 @@ a:hover {
 }
 
 .card {
-  background-color: var(--light-color);
+  background-color: var(--card-background-color);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   overflow: hidden;
@@ -71,16 +75,27 @@ a:hover {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
 
 .card img {
   width: 100%;
-  display: block;
+  height: auto;
+  object-fit: cover;
 }
 
 .card-body {
   padding: 15px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 16px;
 }
 
 .button {
@@ -95,12 +110,12 @@ a:hover {
 }
 
 .button:hover {
-  background-color: darken(var(--primary-color), 10%);
+  background-color: darken(var(--primary-color), 15%);
 }
 
 /* Duyarlı Tasarım */
 @media (max-width: 768px) {
-  .flex, .grid {
+  .grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
