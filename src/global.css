@@ -1,15 +1,15 @@
 @import 'npm:@fontsource/kalam/400.css';
 @import 'npm:@fontsource/kalam/700.css';
 
-html,
-body {
+html, body {
   padding: 0;
   margin: 0;
-  background: #fff;
+  background: #f0f2f5; /* Arka plan rengini daha yumuşak bir tona ayarlayın */
 }
 
 body {
   overscroll-behavior: contain;
+  font-family: 'Kalam', cursive; /* Kalam fontunu varsayılan font olarak ayarlayın */
 }
 
 canvas {
@@ -36,4 +36,49 @@ svg.color-icon {
   font-size: 14px;
   line-height: 1em;
   letter-spacing: 1px;
+}
+
+/* Yeni eklenen stil kuralları */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header, .footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: white; /* İçerik için beyaz arka plan */
+  margin: 20px 0; /* Üst ve alt boşluk */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* İçerik kartı için hafif gölge */
+  border-radius: 8px; /* Yuvarlatılmış köşeler */
+}
+
+.button {
+  background-color: var(--primary-color, #007bff);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: darken(var(--primary-color, #0056b3), 10%);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 }
