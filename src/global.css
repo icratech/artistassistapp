@@ -14,28 +14,43 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Kutucuklar ve Kartlar */
+/* Ana İçerik ve Kutucuklar */
+.main-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
 .card {
   background-color: var(--card-background-color);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   padding: 20px;
-  margin-bottom: 20px;
 }
 
-/* Menü Stilleri */
+/* Üst Menü */
+.header {
+  background-color: var(--primary-color);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .menu {
   display: flex;
-  list-style-type: none;
-  padding: 0;
-  background-color: var(--primary-color);
-  margin-bottom: 20px;
+  gap: 20px;
 }
 
 .menu-item {
-  padding: 15px 20px;
+  padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -44,23 +59,25 @@ body {
   background-color: var(--secondary-color);
 }
 
-/* Seçenekli Kutucuklar */
-.select-box {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  margin-bottom: 20px;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--primary-color);
+/* Alt Menü ve Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 20px;
+  text-align: center;
 }
 
-/* Düğmeler */
+/* Düğmeler ve Form Elemanları */
+.button, .select-box {
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  margin: 10px 0;
+}
+
 .button {
   background-color: var(--primary-color);
   color: var(--text-color);
   border: none;
-  padding: 10px 20px;
-  border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -69,13 +86,19 @@ body {
   background-color: var(--secondary-color);
 }
 
+.select-box {
+  width: 100%;
+  border: 1px solid var(--primary-color);
+}
+
 /* Responsive Tasarım */
 @media (max-width: 768px) {
-  .menu {
+  .header, .footer {
     flex-direction: column;
   }
 
-  .card, .select-box, .button {
-    margin: 10px 0;
+  .menu {
+    flex-direction: column;
+    align-items: center;
   }
 }
