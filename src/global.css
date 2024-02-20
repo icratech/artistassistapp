@@ -3,15 +3,16 @@
 
 :root {
   --primary-color: #007bff;
-  --secondary-color: #ff7851;
-  --accent-color: #ffc107;
-  --text-color: #343a40;
-  --background-color: #f8f9fa;
+  --secondary-color: #6c757d;
+  --accent-color: #17a2b8;
+  --text-color: #212529;
+  --background-color: #f0f2f5;
   --card-background-color: #ffffff;
   --font-family-base: 'Roboto', sans-serif;
   --font-family-heading: 'Kalam', cursive;
-  --border-radius: 10px;
-  --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+  --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  --card-size: 200px; /* Kare kutular için boyut */
 }
 
 *,
@@ -29,93 +30,45 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-heading);
-  margin-top: 0;
-}
-
-p {
-  margin-top: 0;
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 15px;
-}
-
-.flex {
+.grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: space-around;
   gap: 20px;
 }
 
 .card {
+  width: var(--card-size);
+  height: var(--card-size);
   background-color: var(--card-background-color);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
 }
 
-.card-body {
-  padding: 15px;
-}
-
-.card-title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.card-text {
-  font-size: 16px;
-}
-
-.button {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: darken(var(--primary-color), 15%);
-}
-
-/* Duyarlı Tasarım */
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-content: center;
+  }
+
+  .card {
+    width: calc(50% - 10px); /* Mobil cihazlarda iki sütun */
+    height: calc(50% - 10px); /* Yükseklik ve genişlik eşit olacak şekilde ayarlanır */
   }
 }
