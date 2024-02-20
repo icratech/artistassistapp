@@ -1,87 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+/* Global Stil Temelleri */
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --accent-color: #17a2b8;
-  --text-color: #212529;
-  --background-color: #f8f9fa;
-  --card-background-color: #ffffff;
-  --font-family-base: 'Roboto', sans-serif;
-  --font-family-heading: 'Kalam', cursive;
-  --border-radius: 8px;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --padding-standard: 16px;
-}
-
-html, body {
-  padding: 0;
-  margin: 0;
-  background: var(--background-color);
-  font-family: var(--font-family-base);
-  color: var(--text-color);
-  line-height: 1.6;
+  --background-color: #2F495E; /* Nuxt stili mavi arka plan */
+  --primary-color: #3298DC; /* Ana renk */
+  --secondary-color: #3EAF7C; /* İkincil renk */
+  --text-color: #ffffff; /* Metin rengi */
+  --card-background-color: #ffffff; /* Kart arka plan rengi */
+  --border-radius: 10px; /* Kutucukların kenar yuvarlaklığı */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kutucukların gölgesi */
 }
 
 body {
-  overscroll-behavior: contain;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-canvas {
-  display: block;
-}
-
-svg.color-icon {
-  vertical-align: middle;
-}
-
-.ant-tabs-nav .ant-tabs-tab {
-  padding: var(--padding-standard) !important;
-}
-
-.watermark {
-  position: fixed;
-  top: 54px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9;
-  padding: 0 4px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: rgba(0, 0, 0, 0.45);
-  font-size: 14px;
-  line-height: 1em;
-  letter-spacing: 1px;
-}
-
-/* Yeni Eklenen Modern Stil Kuralları */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.header, .footer {
-  text-align: center;
-  padding: var(--padding-standard);
-  background-color: var(--primary-color);
-  color: white;
-}
-
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background: var(--card-background-color);
-  margin: 20px 0;
-  box-shadow: var(--box-shadow);
+/* Kutucuklar ve Kartlar */
+.card {
+  background-color: var(--card-background-color);
   border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
+/* Menü Stilleri */
+.menu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  background-color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.menu-item {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Seçenekli Kutucuklar */
+.select-box {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--primary-color);
+}
+
+/* Düğmeler */
 .button {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-color);
   border: none;
   padding: 10px 20px;
   border-radius: var(--border-radius);
@@ -90,13 +66,16 @@ svg.color-icon {
 }
 
 .button:hover {
-  background-color: darken(var(--primary-color), 10%);
+  background-color: var(--secondary-color);
 }
 
+/* Responsive Tasarım */
 @media (max-width: 768px) {
-  .container, .header, .footer, .main-content {
-    padding: 10px;
-    margin: 10px;
+  .menu {
     flex-direction: column;
+  }
+
+  .card, .select-box, .button {
+    margin: 10px 0;
   }
 }
